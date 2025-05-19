@@ -1,5 +1,5 @@
 {
-  "name": "hello-world-ts",
+  "name": "account-abstraction-demos",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,13 +8,11 @@
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
-    "run:index4": "node --loader ts-node/esm src/index_4.ts",
-    "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix"
+    "lint": "eslint . --ext .ts,.tsx --fix"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "description": "",
   "devDependencies": {
