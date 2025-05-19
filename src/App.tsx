@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import { CssBaseline, ThemeProvider, createTheme, AppBar, Toolbar, Button, Box } from '@mui/material'
+import { CssBaseline, ThemeProvider, createTheme, AppBar, Toolbar, Button, Box, IconButton } from '@mui/material'
+import GitHubIcon from '@mui/icons-material/GitHub'
 import { Demo as Demo3 } from './demo-7702-4337-delegation/Demo'
 import { Demo as Demo2 } from './demo-7702-4337/Demo'
 import { Demo as Demo1 } from './demo-7702/Demo'
@@ -31,6 +32,16 @@ export function App() {
                         <Button color="inherit" component={Link} to="/eip-7710-eip-7715-demo">
                             EIP-7710/EIP-7715 Demo
                         </Button>
+                        <Box sx={{ flexGrow: 1 }} />
+                        <IconButton
+                            color="inherit"
+                            component="a"
+                            href="https://github.com/miguelmota/account-abstraction-demos"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <GitHubIcon />
+                        </IconButton>
                     </Toolbar>
                 </AppBar>
                 <Box sx={{ mt: 2 }}>
