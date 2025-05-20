@@ -17,6 +17,7 @@ import {
     createDelegation,
     DelegationFramework,
     SINGLE_DEFAULT_MODE,
+    createCaveatBuilder
 } from "@metamask/delegation-toolkit"
 import { PIMLICO_API_KEY } from '../config'
 
@@ -273,11 +274,41 @@ export function useDemo(): UseDemoReturn {
         setStatus('Signing delegation...')
 
         try {
-            // Create and sign delegation
+            // Create caveat builder with environment
+            const environment = delegateSmartAccount.environment
+            const caveatBuilder = createCaveatBuilder(environment, { allowEmptyCaveats: false })
+            const mintCalldata = encodeFunctionData({
+                abi: [MINT_ABI],
+                functionName: 'mint',
+                args: [delegatorSmartAccount.address, MINT_AMOUNT],
+            })
+            const transferCalldata = encodeFunctionData({
+                abi: [TRANSFER_ABI],
+                functionName: 'transfer',
+                args: [connectedAccount, MINT_AMOUNT],
+            })
+
+            // Add caveats to restrict methods
+            const caveats = caveatBuilder
+                .addCaveat("allowedMethods", [
+                    "0x00000001", // account deployment random calldata
+                    MINT_ABI,
+                    TRANSFER_ABI,
+                    APPROVE_ABI,
+                    TRANSFER_FROM_ABI,
+                    PERMIT_ABI, 
+                ])
+                // Only allow calls to the token contract
+                .addCaveat("allowedTargets", [zeroAddress, TOKEN_ADDRESS])
+                // Limit to 5 calls per delegation
+                .addCaveat("limitedCalls", 5)
+                .build()
+
+            // Create and sign delegation with caveats
             const delegation = createDelegation({
                 to: delegateSmartAccount.address,
                 from: delegatorSmartAccount.address,
-                caveats: []
+                caveats
             })
 
             const signature = await delegatorSmartAccount.signDelegation({
@@ -710,7 +741,7 @@ export function useDemo(): UseDemoReturn {
                 {
                     target: zeroAddress,  
                     value: 0n, 
-                    callData: "0x" as `0x${string}`
+                    callData: "0x00000001" as `0x${string}` // account deployment random calldata
                   }
             ]
 
