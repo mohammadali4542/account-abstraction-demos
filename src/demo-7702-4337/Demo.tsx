@@ -560,7 +560,7 @@ export function Demo() {
                 paddingBottom: '120px'
             }}>
                 <Typography variant="h4" gutterBottom>
-                    EIP-7702 and EIP-4337 Demo
+                    EIP-7702 and ERC-4337 Demo
                 </Typography>
 
                 <Paper sx={{ p: 2, mb: 3, bgcolor: '#f8f9fa' }}>
@@ -571,7 +571,7 @@ export function Demo() {
                         </Link>{' '}
                         delegations with{' '}
                         <Link href="https://eips.ethereum.org/EIPS/eip-4337" target="_blank" rel="noopener">
-                            EIP-4337
+                            ERC-4337
                         </Link>{' '}
                         account abstraction, using{' '}
                         <Link href="https://pimlico.io" target="_blank" rel="noopener">
@@ -747,7 +747,7 @@ export function Demo() {
                                     }
                                 }}
                             >
-                                EIP-4337
+                                ERC-4337
                             </Link>
                             <Link 
                                 href="https://eips.ethereum.org/EIPS/eip-2612" 
@@ -761,7 +761,7 @@ export function Demo() {
                                     }
                                 }}
                             >
-                                EIP-2612
+                                ERC-2612
                             </Link>
                             <Link 
                                 href="https://pimlico.io" 

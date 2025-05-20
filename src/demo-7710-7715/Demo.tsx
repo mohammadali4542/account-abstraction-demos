@@ -1940,7 +1940,7 @@ export function Demo() {
                     mb: 3
                 }}>
                     <Typography variant="h4">
-                        EIP-7715 Native Token Stream Demo
+                        ERC-7715 Native Token Stream Demo
                     </Typography>
                     {connectedAccount && (
                         <Button

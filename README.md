@@ -1,6 +1,6 @@
 # Ethereum Account Abstraction Demos
 
-A collection of demos showcasing various Ethereum Improvement Proposals (EIPs) such as EIP-7702, EIP-4337, EIP-7710, and EIP-7715. These demos demonstrate how to use account abstraction and delegation frameworks.
+A collection of demos showcasing various Ethereum account abstraction EIPs/ERCs such as EIP-7702, ERC-4337, ERC-7710, and ERC-7715.
 
 ## Live Demo
 
@@ -46,10 +46,11 @@ npm run dev
 ## Resources
 
 - [EIP-7702](https://eips.ethereum.org/EIPS/eip-7702)
-- [EIP-7710](https://eips.ethereum.org/EIPS/eip-7710)
-- [EIP-7715](https://eips.ethereum.org/EIPS/eip-7715)
-- [EIP-4337](https://eips.ethereum.org/EIPS/eip-4337)
-- [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612)
+- [ERC-7710](https://eips.ethereum.org/EIPS/eip-7710)
+- [ERC-7715](https://eips.ethereum.org/EIPS/eip-7715)
+- [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337)
+- [ERC-2612](https://eips.ethereum.org/EIPS/eip-2612)
+- [EIP-712](https://eips.ethereum.org/EIPS/eip-712)
 - [Pimlico](https://pimlico.io)
 - [MetaMask Delegation Toolkit](https://docs.gator.metamask.io) 
 - [MetaMask Flask](https://chromewebstore.google.com/detail/metamask-flask-developmen/ljfoeinjpaedjfecbmggjgodbgkmjkjk)

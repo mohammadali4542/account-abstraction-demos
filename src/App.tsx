@@ -23,14 +23,14 @@ export function App() {
                         <Button color="inherit" component={Link} to="/eip-7702-demo">
                             EIP-7702 Demo
                         </Button>
-                        <Button color="inherit" component={Link} to="/eip-7702-eip-4337-demo">
-                            EIP-7702/EIP-4337 Demo
+                        <Button color="inherit" component={Link} to="/eip-7702-erc-4337-demo">
+                            EIP-7702/ERC-4337 Demo
                         </Button>
-                        <Button color="inherit" component={Link} to="/eip-7702-eip-4337-delegation-demo">
-                            EIP-7702/EIP-4337 Delegation Demo
+                        <Button color="inherit" component={Link} to="/eip-7702-erc-4337-delegation-demo">
+                            EIP-7702/ERC-4337 Delegation Demo
                         </Button>
-                        <Button color="inherit" component={Link} to="/eip-7710-eip-7715-demo">
-                            EIP-7710/EIP-7715 Demo
+                        <Button color="inherit" component={Link} to="/erc-7710-erc-7715-demo">
+                            ERC-7710/ERC-7715 Demo
                         </Button>
                         <Box sx={{ flexGrow: 1 }} />
                         <IconButton
@@ -48,9 +48,9 @@ export function App() {
                     <Routes>
                         <Route path="/" element={<Demo1 />} />
                         <Route path="/eip-7702-demo" element={<Demo1 />} />
-                        <Route path="/eip-7702-eip-4337-demo" element={<Demo2 />} />
-                        <Route path="/eip-7702-eip-4337-delegation-demo" element={<Demo3 />} />
-                        <Route path="/eip-7710-eip-7715-demo" element={<Demo4 />} />
+                        <Route path="/eip-7702-erc-4337-demo" element={<Demo2 />} />
+                        <Route path="/eip-7702-erc-4337-delegation-demo" element={<Demo3 />} />
+                        <Route path="/erc-7710-erc-7715-demo" element={<Demo4 />} />
                     </Routes>
                 </Box>
             </ThemeProvider>
