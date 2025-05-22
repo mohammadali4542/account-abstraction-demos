@@ -40,9 +40,9 @@ const STEPS = [
         label: 'Mint & Transfer Tokens',
         description: 'Mint test tokens and transfer them to your wallet.',
         details: [
-            'The delegate will mint 1000 TEST tokens to the smart account.',
+            'The session smart account will mint 1000 TEST tokens to the smart account.',
             'Then it will transfer these tokens to your MetaMask wallet.',
-            'This demonstrates the delegate executing multiple transactions on your behalf.',
+            'This demonstrates the session smart account executing multiple transactions on your behalf.',
             'All operations are bundled into a single user operation.'
         ]
     },
@@ -67,7 +67,6 @@ export function Demo() {
         swapTxHash,
         swapUserOpHash,
         connectedAccount,
-        delegatorSmartAccount,
         error,
         connect,
         mintAndTransferTokens,
@@ -245,7 +244,7 @@ export function Demo() {
                             }}>
                                 <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                     <Box component="span" sx={{ fontSize: '1.1rem' }}>⚙️</Box>
-                                    Deploying your smart account... This is a one-time setup that enables EIP-7702 delegations.
+                                    Deploying your smart account... This is a one-time setup that enables EIP-7702 smart accounts.
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary" sx={{ mt: 1, fontSize: '0.875rem' }}>
                                     This may take a few moments.
@@ -569,7 +568,7 @@ export function Demo() {
                         <Link href="https://eips.ethereum.org/EIPS/eip-7702" target="_blank" rel="noopener">
                             EIP-7702
                         </Link>{' '}
-                        delegations with{' '}
+                        delegated session smart accounts with{' '}
                         <Link href="https://eips.ethereum.org/EIPS/eip-4337" target="_blank" rel="noopener">
                             ERC-4337
                         </Link>{' '}
@@ -577,7 +576,7 @@ export function Demo() {
                         <Link href="https://pimlico.io" target="_blank" rel="noopener">
                             Pimlico
                         </Link>{' '}
-                        as the bundler and paymaster. Create a smart account, use permit for gasless token approvals, and execute token swaps in a single user operation. The demo uses EIP-2612 permit signatures to enable gasless token transfers and swaps through the delegated smart account.
+                        as the bundler and paymaster. Create a smart account, use permit for gasless token approvals, and execute token swaps in a single user operation. The demo uses EIP-2612 permit signatures to enable gasless token transfers and swaps through the delegated session smart account.
                     </Typography>
                 </Paper>
 

@@ -14,6 +14,7 @@ import {
     toMetaMaskSmartAccount,
 } from "@metamask/delegation-toolkit"
 import { PIMLICO_API_KEY } from '../config'
+import { privateKeyToAccount, generatePrivateKey } from 'viem/accounts'
 
 // Constants
 const CHAIN_ID = 11155111 // Sepolia
@@ -170,22 +171,19 @@ export function useDemo(): UseDemoReturn {
             const initialBalances = await getBalances(account)
             setBalances(initialBalances)
 
-            const _walletClient = createWalletClient({
-                account,
-                chain,
-                transport: custom(window.ethereum)
-            })
-
+            // Create delegator account from private key
+            const delegatorPrivateKey = generatePrivateKey()
+            const delegatorAccount = privateKeyToAccount(delegatorPrivateKey)
+        
             // Initialize delegator smart account
             setStatus('Creating smart account...')
             const delegatorSmartAccount = await toMetaMaskSmartAccount({
                 client: publicClient,
                 implementation: Implementation.Hybrid,
-                deployParams: [account, [], [], []],
-                deploySalt: "0x22" as `0x${string}`,
+                deployParams: [delegatorAccount.address, [], [], []],
+                deploySalt: "0x" as `0x${string}`,
                 signatory: {
-                    walletClient: _walletClient,
-                    account: _walletClient.account
+                    account: delegatorAccount,
                 },
             })
 
