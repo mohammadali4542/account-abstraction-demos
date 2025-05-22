@@ -5,7 +5,6 @@ import {
     http,
     custom,
     parseEther,
-    zeroAddress,
 } from 'viem'
 import { mainnet, sepolia, gnosis } from 'viem/chains'
 import { createPimlicoClient } from 'permissionless/clients/pimlico'
@@ -261,13 +260,6 @@ export function Demo() {
                 data: tx.data.startsWith('0x') ? tx.data : `0x${tx.data}`,
             }))
 
-            // Add initial zero-value transaction
-            calls.unshift({
-                to: zeroAddress,
-                value: '0x00',
-                data: '0x00',
-            })
-
             console.log('Calls:', calls)
             // Prepare the sendCalls request
             const sendCallsRequest = {
@@ -278,6 +270,12 @@ export function Demo() {
                     chainId: `0x${NETWORKS[selectedNetwork].chain.id.toString(16)}`,
                     atomicRequired: true,
                     calls,
+                    capabilities: {
+                        paymasterService: {
+                          url: `https://api.pimlico.io/v2/11155111/rpc?apikey=${PIMLICO_API_KEY}`,
+                          optional: true
+                        }
+                    }
                 }]
             }
 
